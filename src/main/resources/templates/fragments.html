@@ -27,5 +27,17 @@
         </div>
     </div>
 
+    <div th:fragment="result" th:if="${jobs} and ${jobs.size()}">
+
+        <h2 th:text = "'There are ' + ${jobs.size()} + ' results:'">There are results:</h2>
+        <table th:each="job, idx : ${jobs}" class = "job-listing">
+            <tr><td>Position Type:</td><td th:text = "${job.get('position type')}"></td></tr>
+            <tr><td>Name:</td><td th:text = "${job.get('name')}"></td></tr>
+            <tr><td>Employer:</td><td th:text = "${job.get('employer')}"></td></tr>
+            <tr><td>Location:</td><td th:text = "${job.get('location')}"></td></tr>
+            <tr><td>Core Competency:</td><td th:text = "${job.get('core competency')}"></td></tr>
+        </table>
+
+    </div>
 </body>
 </html>
